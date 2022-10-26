@@ -11,7 +11,7 @@ app.use(
     })
 )
 
-app.get("/", async (req, res) =>{
+app.get("/api-logins/", async (req, res) =>{
 
     const auth = new google.auth.GoogleAuth({
         keyFile: "credentials.json",
@@ -37,7 +37,7 @@ app.get("/", async (req, res) =>{
 });
 
 
-app.post("/", async (req, res) =>{
+app.post("/api-logins/", async (req, res) =>{
 
     const {name, password} = req.body;
 
@@ -75,6 +75,6 @@ app.post("/", async (req, res) =>{
     res.send(getRows.data);
 });
 
-app.listen(1338, (req, res) => {
-    console.log("running on 1338");
+app.listen(80, (req, res) => {
+    console.log("running on 80");
 })
